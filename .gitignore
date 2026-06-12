@@ -1,0 +1,21 @@
+.DS_Store
+
+# Shadowrocket local state and caches.
+*.db
+*.archive
+*.model
+Modules/
+Script/
+
+# Real local profiles may reference local server IDs.
+sr_nonru_basic.conf
+sr_ru_geo.conf
+
+# Keep sanitized examples in the public repository.
+!sr_nonru_basic.example.conf
+!sr_ru_geo.example.conf
+
+# Local/editor noise.
+*.bak
+*.tmp
+*.log
