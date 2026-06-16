@@ -14,6 +14,24 @@
 3. Настройте proxy-группы под имена и фильтры своих нод.
 4. Проверьте работу ключевых приложений через Shadowrocket logs.
 
+## macOS DNS preflight
+
+На macOS перед использованием TUN/DNS-перехвата проверьте, что legacy resolver
+file существует:
+
+```sh
+ls -l /etc/resolv.conf /var/run/resolv.conf
+```
+
+Если `/etc/resolv.conf` отсутствует, создайте стандартную ссылку:
+
+```sh
+sudo ln -sf /var/run/resolv.conf /etc/resolv.conf
+```
+
+Это системная настройка macOS, а не правило Shadowrocket. Она нужна для
+совместимости клиентов, которые в TUN/DNS-сценариях читают legacy resolver file.
+
 ## Безопасность
 
 Реальные `.conf`, базы Shadowrocket и локальные server IDs не отслеживаются Git. В публичный репозиторий попадают только переносимые examples.
